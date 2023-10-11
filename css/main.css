@@ -1,0 +1,107 @@
+:root {
+    --special-color: tomato;
+    --second-color: midnightblue;
+    --light-color: white;
+    --dark-color: black;
+    --bright-color: rgb(151, 248, 236);
+}
+
+/* . is class name selector */
+.container{
+    max-width: 900px;
+    margin: 0 auto;
+}
+/* space is the descendent combinator */
+nav ul{
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li{
+    flex: 1;
+}
+
+/* LoVe HAte */
+/* (Link, Visited, Hover, Focus, Active) */
+nav a,
+nav a:link,
+nav a:visited{
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: transform .5s;
+}
+
+nav a:hover,
+nav a:focus{
+    text-decoration: underline;
+    transform: scale(1.2);
+}
+nav a:active{
+    transform: scale(1.2) translateX(10px);
+}
+
+
+/* > is direct child combinator */
+main>p {
+    font-size: 1.25rem;
+}
+
+/* + is the adjacent combinator */
+h2+p {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    padding: 1rem;
+}
+
+.stars span:hover{
+    cursor: pointer;
+}
+
+/* ~ is the sibling combinator */
+.stars span:hover~span{
+    opacity: .5;
+}
+
+a[href="#"]{
+    color: var(--special-color);
+}
+
+/* ^= is for begins with */
+a[href^="http"]{
+    border-left: 6px solid var(--special-color);
+    padding-left: 1em;
+}
+
+/* $= is for ends with */
+a[href$=".pdf"]::after{
+    content:"\2913";
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--special-color);
+}
+
+/* + is the adjacent combinator, ::first-line is to select the text in the first line */
+h2+p::first-line{
+    color: var(--special-color);
+}
+
+/* + is the adjacent combinator, ::first-letter is to select the first character */
+h3+p::first-letter{
+    background-color: var(--second-color);
+    color: var(--bright-color);
+    font-size: 1.25rem;
+    padding: .25em;
+    margin: .15em;
+}
+
+.google {
+    display: block;
+    background-color: var(--second-color);
+    color: var(--light-color);
+    padding: 2rem;
+    margin: 1rem;
+    width: calc(100% - 6px - 5rem);
+}
